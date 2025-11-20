@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Italianno&display=swap');
+
+.footer-section {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #0d0d1a, #1a1a2e, #0d0d1a, #1a1a2e);
+  background-size: 400% 400%;
+  animation: bgShift 15s ease infinite;
+  color: #fff;
+  padding: 80px 20px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background gradient animation */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shooting stars */
+.shooting-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(to bottom, #fff, rgba(255,255,255,0));
+  top: -10%;
+  left: calc(100% * var(--i));
+  transform: rotate(45deg);
+  animation: shoot 4s linear infinite;
+}
+
+@keyframes shoot {
+  0% { transform: translateX(0) translateY(0) rotate(45deg); opacity: 1; }
+  100% { transform: translateX(-120vw) translateY(120vh) rotate(45deg); opacity: 0; }
+}
+
+/* Thank you text */
+.footer-thankyou {
+  font-family: 'Italianno', cursive;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: #fff;
+  font-style: italic;
+  text-shadow: 0 0 15px #fff, 0 0 30px #ff00ff55, 0 0 40px #00ffff55;
+}
+
+/* Social icons wrapper */
+.footer-icons-wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-icons a {
+  font-size: 2rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.footer-icons a:hover {
+  transform: scale(1.3);
+  text-shadow: 0 0 15px #ff00ff, 0 0 20px #00ffff;
+  color: #fff;
+}
+
+/* Name & Year */
+.footer-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+/* Quick links */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  z-index: 1;
+  position: relative;
+}
+
+.footer-links a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 10px #ff00ff, 0 0 15px #00ffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-thankyou { font-size: 2rem; }
+  .footer-icons { gap: 25px; }
+  .footer-links { gap: 15px; }
+}

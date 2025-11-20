@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+.qualification-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 100px 20px 150px 20px;
+  background: linear-gradient(135deg, #0d0f1a, #1a1f33, #101126);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Stars */
+.stars-layer {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+.stars-layer::before {
+  content: '';
+  position: absolute;
+  width: 2px; height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    20px 50px #fff, 200px 120px #fff, 350px 300px #fff,
+    400px 500px #fff, 600px 220px #fff, 800px 700px #fff,
+    900px 400px #fff, 1000px 50px #fff, 1100px 600px #fff,
+    1200px 300px #fff;
+}
+.stars-layer::after {
+  content: '';
+  position: absolute;
+  width: 2px; height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    60px 100px #fff, 300px 50px #fff, 500px 200px #fff,
+    700px 350px #fff, 900px 500px #fff, 1100px 300px #fff;
+}
+
+/* Heading with deep shadow */
+.qualification-heading {
+  font-size: 4rem;
+  font-weight: 800;
+  text-align: center;
+  text-shadow:
+    2px 2px 2px #000,
+    4px 4px 4px rgba(0,0,0,0.4),
+    6px 6px 6px rgba(0,0,0,0.6),
+    8px 8px 8px rgba(0,0,0,0.8);
+  margin-bottom: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Horizontal orbital cards */
+.qualification-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Card base style with orbital motion */
+.qualification-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  width: 280px;
+  height: 320px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.5s ease;
+  animation: orbitCard 12s linear infinite;
+  animation-delay: calc(var(--i) * 2s);
+}
+
+.qualification-card:hover {
+  transform: scale(1.1) translateY(-10px);
+}
+
+/* Orbital motion keyframe */
+@keyframes orbitCard {
+  0% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+  25% { transform: rotate(10deg) translateX(10px) translateY(-10px); }
+  50% { transform: rotate(20deg) translateX(0px) translateY(-15px); }
+  75% { transform: rotate(30deg) translateX(-10px) translateY(-10px); }
+  100% { transform: rotate(40deg) translateX(0px) translateY(0px); }
+}
+
+/* Card content jiggle */
+.card-content {
+  padding: 20px;
+  text-align: center;
+  animation: jiggle 1.5s ease-in-out infinite alternate;
+}
+
+.card-content h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.card-content h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.card-content p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+.card-content span {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+@keyframes jiggle {
+  0% { transform: translate(0px,0px); }
+  25% { transform: translate(1px,-1px); }
+  50% { transform: translate(-1px,1px); }
+  75% { transform: translate(1px,1px); }
+  100% { transform: translate(0px,0px); }
+}
+
+/* Scroll link button */
+.scroll-to-contact {
+  margin-top: 50px;
+  z-index: 2;
+}
+.scroll-link {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border: 2px solid #fff;
+  padding: 14px 28px;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+}
+.scroll-link:hover {
+  background: #fff;
+  color: #101126;
+  box-shadow: 0 0 25px #fff;
+}

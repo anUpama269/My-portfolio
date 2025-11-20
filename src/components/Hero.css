@@ -1,0 +1,252 @@
+/* ==== IMPORT FONT ==== */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700;900&family=Poppins:wght@400;600&display=swap');
+
+/* ==== HERO SECTION CONTAINER ==== */
+.hero-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #06061a, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6%;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+/* ==== GALAXY PINWHEEL ==== */
+.pinwheel, .pinwheel-layer {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+.pinwheel {
+  background: radial-gradient(circle, #0a0033 10%, transparent 11%) repeat,
+              radial-gradient(circle, #001144 5%, transparent 6%) repeat,
+              radial-gradient(circle, rgba(255, 255, 255, 0.15) 2%, transparent 3%) repeat;
+  background-size: 160px 160px, 100px 100px, 60px 60px;
+  animation: spinGalaxy 120s linear infinite;
+}
+
+.pinwheel-layer::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 100px 200px #fff, 400px 300px #fff, 700px 150px #fff,
+              1500px 500px #fff, 1200px 700px #fff, 800px 900px #fff;
+  opacity: 0.3;
+  animation: twinkle 5s infinite alternate;
+}
+
+@keyframes spinGalaxy {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1.3); }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.1; }
+}
+
+/* ==== HERO CONTENT WRAPPER ==== */
+.hero-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 3;
+}
+
+/* ==== TEXT SECTION ==== */
+.text-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2%;
+}
+
+/* ==== SPLIT MAIN TITLE ==== */
+.hero-title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* space between halves */
+}
+
+/* Left & Right Title Halves */
+.hero-title-left,
+.hero-title-right {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 900;
+  font-size: 5rem; /* Increased size */
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00ffff, #ff00ff, #0077ff);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px #00ffff, 0 0 25px #ffffff;
+}
+
+/* Flicker / Zoom Effect */
+.animate-flicker .hero-title-left,
+.animate-flicker .hero-title-right {
+  animation: flickerZoom 3s ease-in-out infinite;
+}
+
+@keyframes flickerZoom {
+  0%, 100% { transform: scale(1); text-shadow: 0 0 15px #00ffff, 0 0 25px #ffffff; }
+  50% { transform: scale(1.1); text-shadow: 0 0 30px #ff00ff, 0 0 50px #00ffff; }
+}
+
+/* ==== SUBCONTENT / CREDITS ==== */
+.subcontent-wrapper {
+  overflow: hidden;
+  height: 120px; /* restrict scrolling area */
+  margin-top: 20px;
+  position: relative;
+}
+
+.subcontent-inner {
+  display: flex;
+  flex-direction: column;
+  animation: scrollCredits 15s linear infinite; /* faster scroll */
+  transform: translateY(100%); /* start immediately */
+}
+
+.subcontent-inner p {
+  margin: 15px 0;
+  font-size: 1.5rem;
+  color: #cceeff;
+  text-shadow: 0 0 12px #0077ff, 0 0 20px #00ffff;
+  line-height: 2rem;
+}
+
+/* Smooth vertical scroll without delay */
+@keyframes scrollCredits {
+  0% { transform: translateY(100%); opacity: 1; }
+  100% { transform: translateY(-120%); opacity: 1; }
+}
+
+/* ==== PHOTO SECTION ==== */
+.photo-section {
+  flex: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.hero-photo {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 2px solid rgba(0, 204, 255, 0.4);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.25),
+              0 0 60px rgba(255, 255, 255, 0.2);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.3), transparent);
+  animation: floatPhoto 7s ease-in-out infinite;
+}
+
+@keyframes floatPhoto {
+  0%, 100% { transform: translateY(0px) rotateY(0deg); }
+  25% { transform: translateY(-20px) rotateY(3deg); }
+  50% { transform: translateY(-25px) rotateY(-3deg); }
+  75% { transform: translateY(-10px) rotateY(2deg); }
+}
+
+/* ==== WAVES ==== */
+.waves {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 180px;
+  z-index: 2;
+}
+
+.wave {
+  position: absolute;
+  width: 2000px;
+  height: 180px;
+  background: url("https://svgshare.com/i/16tU.svg") repeat-x;
+  background-size: 2000px 180px;
+  opacity: 0.8;
+  animation: waveMove 10s linear infinite;
+}
+
+#wave2 { animation-duration: 15s; opacity: 0.6; bottom: 50px; animation-direction: reverse; }
+#wave3 { animation-duration: 12s; opacity: 0.7; bottom: 20px; }
+#wave4 { animation-duration: 18s; opacity: 0.5; bottom: 10px; }
+
+@keyframes waveMove {
+  from { background-position-x: 0; }
+  to { background-position-x: 2000px; }
+}
+
+/* ==== SCROLL BUTTON ==== */
+.scroll-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.scroll-btn:hover {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .photo-section {
+    margin-top: 30px;
+  }
+
+  .hero-photo {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-title-left,
+  .hero-title-right {
+    font-size: 3rem;
+  }
+
+  .subcontent-inner p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .pinwheel {
+    opacity: 0.5;
+  }
+}

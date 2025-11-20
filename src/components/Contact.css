@@ -1,0 +1,160 @@
+/* ---------------- Section ---------------- */
+.contact-section {
+  position: relative;
+  padding: 5rem 2rem;
+  background: radial-gradient(circle at top, #0d0d1a, #05050d);
+  color: #fff;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* ---------------- Cosmic Bubbles ---------------- */
+.bubbles-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bubbles-layer span {
+  position: absolute;
+  bottom: -20px;
+  width: 15px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: rise 10s linear infinite;
+}
+
+.bubbles-layer span:nth-child(odd) { left: 10%; animation-duration: 8s; }
+.bubbles-layer span:nth-child(even) { left: 70%; animation-duration: 12s; }
+
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-1200px); opacity: 0; }
+}
+
+/* ---------------- Heading ---------------- */
+.contact-heading {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  font-weight: 900;
+  z-index: 1;
+  position: relative;
+
+  text-shadow:
+    1px 1px 0 #ff00ff,
+    2px 2px 0 #ff00ff55,
+    3px 3px 0 #ff00ff33,
+    4px 4px 0 #00ffff,
+    5px 5px 0 #00ffff55;
+
+  animation: orbitShadow 6s linear infinite alternate;
+}
+
+@keyframes orbitShadow {
+  0%{
+    text-shadow:1px 1px 0 #ff00ff,2px 2px 0 #ff00ff55,3px 3px 0 #ff00ff33,4px 4px 0 #00ffff,5px 5px 0 #00ffff55;
+  }
+  50%{
+    text-shadow:3px 3px 0 #ff00ff,4px 4px 0 #ff00ff55,5px 5px 0 #ff00ff33,6px 6px 0 #00ffff,7px 7px 0 #00ffff55;
+  }
+  100%{
+    text-shadow:1px 1px 0 #ff00ff,2px 2px 0 #ff00ff55,3px 3px 0 #ff00ff33,4px 4px 0 #00ffff,5px 5px 0 #00ffff55;
+  }
+}
+
+/* ---------------- Flip Cards ---------------- */
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  z-index: 1;
+  position: relative;
+}
+
+.flip-card {
+  width: 280px;   /* horizontal elongation */
+  height: 180px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 0 10px #ff00ff55, 0 0 15px #00ffff55;
+}
+
+.flip-card-front { background: rgba(255,255,255,0.05); backdrop-filter: blur(6px); }
+.flip-card-back { background: linear-gradient(45deg,#ff00ff,#00ffff); transform: rotateY(180deg); }
+
+.card-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+/* ---------------- Message Box ---------------- */
+.message-box {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1;
+  position: relative;
+}
+
+.message-box textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  resize: none;
+}
+
+.message-box button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(45deg,#ff00ff,#00ffff);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.message-box button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff;
+}
+
+/* ---------------- Scroll Link ---------------- */
+.scroll-link { margin-top: 2rem; z-index:1; position: relative; }
+.scroll-link a { color:#fff; text-decoration:none; font-weight:bold; }
+.scroll-link a:hover { color:#ff00ff; text-shadow:0 0 10px #ff00ff,0 0 20px #00ffff; }
