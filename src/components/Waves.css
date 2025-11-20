@@ -14,11 +14,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 0.5rem;
+  width: 0.5rem; /* previously using var(-0.5rem) */
   height: 0.5rem;
   background: #160000;
   border-radius: 50%;
-  transform: translate3d(calc(var(-0.5rem) - 50%), calc(var(50%) - 50%), 0);
+  transform: translate3d(-0.5rem, 50%, 0); /* fixed invalid var() */
   will-change: transform;
 }
 
@@ -26,4 +26,24 @@
   display: block;
   width: 100%;
   height: 100%;
+}
+
+/* Additional waves if any (like wave images) */
+.wave {
+  position: absolute;
+  width: 2000px;
+  height: 180px;
+  background: url("https://svgshare.com/i/16tU.svg") repeat-x;
+  background-size: 2000px 180px;
+  opacity: 0.8;
+  animation: waveMove 10s linear infinite;
+}
+
+#wave2 { animation-duration: 15s; opacity: 0.6; bottom: 50px; animation-direction: reverse; }
+#wave3 { animation-duration: 12s; opacity: 0.7; bottom: 20px; }
+#wave4 { animation-duration: 18s; opacity: 0.5; bottom: 10px; }
+
+@keyframes waveMove {
+  from { background-position-x: 0; }
+  to { background-position-x: 2000px; }
 }
